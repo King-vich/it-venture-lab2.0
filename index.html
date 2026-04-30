@@ -358,6 +358,19 @@ textarea.inp{resize:vertical;min-height:90px;}
   .g3,.g2,.g32,.g4{grid-template-columns:1fr;}
   .sb-main{grid-template-columns:1fr;}
 }
+/* ─── ZVÝŠENÍ NEPRŮHLEDNOSTI BLOKŮ (SKRYTÍ MŘÍŽKY) ─── */
+.panel, .stat, .ch-card, .vault-card, .auth-box {
+  background: rgba(12, 12, 12, 0.95) !important; 
+}
+.l-card, .term, .inp, .sim-panel, .chat-wrap, .lvl-bar-wrap {
+  background: rgba(5, 5, 5, 0.95) !important;
+}
+.challenge {
+  background: rgba(0, 15, 5, 0.95) !important; /* Temně zelená pro výzvy */
+}
+.test-box {
+  background: rgba(0, 15, 20, 0.95) !important; /* Temně modrá pro testy */
+}
 </style>
 </head>
 <body>
@@ -403,7 +416,7 @@ textarea.inp{resize:vertical;min-height:90px;}
     <!-- Student: kód třídy -->
     <div id="reg-student-fields">
       <div class="fgrp">
-        <label class="flbl">Kód třídy <span style="color:var(--txt3);font-size:9px;">(dostaneš od učitele)</span></label>
+        <label class="flbl">Kód třídy <span style="color:var(--txt3);font-size:10px;">(dostaneš od učitele)</span></label>
         <input type="text" class="inp" id="r-class" placeholder="např. SPSE-2025-A" style="text-transform:uppercase;">
       </div>
     </div>
@@ -420,21 +433,11 @@ textarea.inp{resize:vertical;min-height:90px;}
     <div class="auth-err" id="reg-err"></div>
     <button class="btn btn-b" style="width:100%;justify-content:center;margin-top:4px;" id="reg-btn" onclick="doRegister()">+ VYTVOŘIT PROFIL AGENTA</button>
   </div>
-  <div style="margin-top:14px;text-align:center;font-size:9px;color:var(--txt3);">Přihlášení funguje dle registrované role · Učitel PIN: 1234</div>
-  <div id="supa-setup" style="margin-top:14px;border-top:1px solid var(--dim2);padding-top:14px;">
-    <div style="font-size:9px;letter-spacing:1.5px;color:var(--txt2);text-transform:uppercase;margin-bottom:6px;">⚙ Supabase anon key (volitelné)</div>
-    <div style="display:flex;gap:6px;">
-      <input type="text" class="inp" id="supa-key-inp" placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..." style="font-size:10px;" value="">
-      <button class="btn btn-ghost btn-sm" onclick="saveSupaKey()" style="white-space:nowrap;">Uložit</button>
-    </div>
-    <div style="font-size:9px;color:var(--txt3);margin-top:5px;">Supabase → Settings → API → anon public (JWT token)</div>
-    <!-- Proxy URL -->
-    <div style="font-size:9px;letter-spacing:1.5px;color:var(--txt2);text-transform:uppercase;margin:12px 0 6px;">📡 Market proxy URL (volitelné)</div>
-    <div style="display:flex;gap:6px;">
-      <input type="text" class="inp" id="proxy-url-inp" placeholder="http://localhost:3001" style="font-size:10px;" value="">
-      <button class="btn btn-ghost btn-sm" onclick="saveProxyUrl()" style="white-space:nowrap;">Uložit</button>
-    </div>
-    <div style="font-size:9px;color:var(--txt3);margin-top:5px;">server.js proxy → alpha vantage live data · bez proxy = Claude AI</div>
+  <div style="margin-top:14px;text-align:center;font-size:10px;color:var(--txt3);">Přihlášení funguje dle registrované role · Učitel PIN: 1234</div>
+  
+  <!-- DISCLAIMER LOGIN -->
+  <div style="text-align: center; margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--dim2); font-size: 11px; color: var(--txt3); line-height: 1.6; letter-spacing: 1px;">
+    // UPOZORNĚNÍ: Tato aplikace je raný prototyp.<br>Všechny finanční obnosy, tržní data a firmy jsou součástí virtuální vzdělávací simulace a neodpovídají skutečnosti.
   </div>
 </div>
 </div>
@@ -564,6 +567,10 @@ textarea.inp{resize:vertical;min-height:90px;}
       <div id="tab-architect" style="display:none;"></div>
     </div>
 
+  </div>
+  <!-- DISCLAIMER PATIČKA -->
+  <div style="text-align: center; padding: 20px; font-size: 10px; color: var(--txt3); font-family: var(--f); letter-spacing: 1px; border-top: 1px solid var(--dim2); margin-top: auto;">
+    // UPOZORNĚNÍ: Tato aplikace je raný prototyp. Všechny finanční obnosy, tržní data a firmy jsou součástí virtuální vzdělávací simulace a neodpovídají skutečnosti.
   </div>
 </div>
 </div>
@@ -2357,7 +2364,7 @@ function sbRenderSetup(){
       </div>
       <div class="fgrp"><label class="flbl">Popis projektu</label>
         <textarea class="inp" id="sb-desc" rows="3" placeholder="Čím váš IT produkt je unikátní a komu pomáhá?">${SB.project?.description||''}</textarea>
-        <div style="font-size:9px;color:var(--txt3);margin-top:3px;">⚠ Vágní popis = AI investor sníží starting budget o 30 %</div>
+        <div style="font-size:11px;color:var(--txt3);margin-top:3px;">⚠ Vágní popis = AI investor sníží starting budget o 30 %</div>
       </div>
 
       <!-- B2B vs B2C přepínač -->
